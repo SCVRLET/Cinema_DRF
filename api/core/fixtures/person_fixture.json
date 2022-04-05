@@ -1,0 +1,145 @@
+[
+    {
+        "model": "movie.Person",
+        "pk": 1,
+        "fields": {
+            "first_name": "Кристофер",
+            "last_name": "Нолан",
+            "patronymic": "",
+            "date_of_birth": "1970-07-30",
+            "place_of_birth": "Лондон, Англия, Великобритания"
+        }
+    },
+    {
+        "model": "movie.Person",
+        "pk": 2,
+        "fields": {
+            "first_name": "Кристиан",
+            "last_name": "Бэйл",
+            "patronymic": "",
+            "date_of_birth": "1974-01-30",
+            "place_of_birth": "Хаверфордвест, Пембрукшир, Уэльс, Великобритания"
+        }
+    },
+    {
+        "model": "movie.Person",
+        "pk": 3,
+        "fields": {
+            "first_name": "Хит",
+            "last_name": "Леджер",
+            "patronymic": "",
+            "date_of_birth": "1979-04-04",
+            "place_of_birth": "Перт, Австралия"
+        }
+    },
+    {
+        "model": "movie.Person",
+        "pk": 4,
+        "fields": {
+            "first_name": "Аарон",
+            "last_name": "Экхарт",
+            "patronymic": "",
+            "date_of_birth": "1968-03-12",
+            "place_of_birth": "Купертино, Калифорния, США"
+        }
+    },
+    {
+        "model": "movie.Person",
+        "pk": 5,
+        "fields": {
+            "first_name": "Мэгги",
+            "last_name": "Джилленхол",
+            "patronymic": "",
+            "date_of_birth": "1977-11-16",
+            "place_of_birth": "Нижний Истсайд, Нью-Йорк, США"
+        }
+    },
+    {
+        "model": "movie.Person",
+        "pk": 6,
+        "fields": {
+            "first_name": "Гари",
+            "last_name": "Олдман",
+            "patronymic": "",
+            "date_of_birth": "1958-03-21",
+            "place_of_birth": "Лондон, Англия, Великобритания"
+        }
+    },
+    {
+        "model": "movie.Person",
+        "pk": 7,
+        "fields": {
+            "first_name": "Майкл",
+            "last_name": "Кейн",
+            "patronymic": "",
+            "date_of_birth": "1933-03-14",
+            "place_of_birth": "Лондон, Англия, Великобритания"
+        }
+    },
+    {
+        "model": "movie.Person",
+        "pk": 8,
+        "fields": {
+            "first_name": "Морган",
+            "last_name": "Фриман",
+            "patronymic": "",
+            "date_of_birth": "1937-06-01",
+            "place_of_birth": "Мемфис, Теннесси, США"
+        }
+    },
+    {
+        "model": "movie.Person",
+        "pk": 9,
+        "fields": {
+            "first_name": "Джонатан",
+            "last_name": "Нолан",
+            "patronymic": "",
+            "date_of_birth": "1976-06-06",
+            "place_of_birth": "Лондон, Англия, Великобритания"
+        }
+    },
+    {
+        "model": "movie.Person",
+        "pk": 10,
+        "fields": {
+            "first_name": "Дэвид С.",
+            "last_name": "Гойер",
+            "patronymic": "",
+            "date_of_birth": "1965-12-22",
+            "place_of_birth": "Энн-Арбор, Мичиган, США"
+        }
+    },
+    {
+        "model": "movie.Person",
+        "pk": 11,
+        "fields": {
+            "first_name": "Джеймс Ньютон",
+            "last_name": "Ховард",
+            "patronymic": "",
+            "date_of_birth": "1951-06-09",
+            "place_of_birth": "Лос-Анджелес, Калифорния, США"
+        }
+    },
+    {
+        "model": "movie.Person",
+        "pk": 12,
+        "fields": {
+            "first_name": "Уолли",
+            "last_name": "Пфистер",
+            "patronymic": "",
+            "date_of_birth": "1961-07-08",
+            "place_of_birth": "Чикаго, Иллинойс, США"
+        }
+    },
+    {
+        "model": "movie.Person",
+        "pk": 13,
+        "fields": {
+            "first_name": "Ханс",
+            "last_name": "Циммер",
+            "patronymic": "",
+            "date_of_birth": "1957-09-12",
+            "place_of_birth": "Франкфурт-на-Майне, ФРГ (Германия)"
+        }
+    }
+]

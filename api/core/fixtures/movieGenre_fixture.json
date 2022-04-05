@@ -1,0 +1,149 @@
+[
+    {
+        "model": "movie.MovieGenre",
+        "pk": 1,
+        "fields": {
+            "name": "Аниме"
+        }
+    },
+    {
+        "model": "movie.MovieGenre",
+        "pk": 2,
+        "fields": {
+            "name": "Биография"
+        }
+    },
+    {
+        "model": "movie.MovieGenre",
+        "pk": 3,
+        "fields": {
+            "name": "Боевик"
+        }
+    },
+    {
+        "model": "movie.MovieGenre",
+        "pk": 4,
+        "fields": {
+            "name": "Вестерн"
+        }
+    },
+    {
+        "model": "movie.MovieGenre",
+        "pk": 5,
+        "fields": {
+            "name": "Военный"
+        }
+    },
+    {
+        "model": "movie.MovieGenre",
+        "pk": 6,
+        "fields": {
+            "name": "Детектив"
+        }
+    },
+    {
+        "model": "movie.MovieGenre",
+        "pk": 7,
+        "fields": {
+            "name": "Документальный"
+        }
+    },
+    {
+        "model": "movie.MovieGenre",
+        "pk": 8,
+        "fields": {
+            "name": "Драма"
+        }
+    },
+    {
+        "model": "movie.MovieGenre",
+        "pk": 9,
+        "fields": {
+            "name": "История"
+        }
+    },
+    {
+        "model": "movie.MovieGenre",
+        "pk": 10,
+        "fields": {
+            "name": "Комедия"
+        }
+    },
+    {
+        "model": "movie.MovieGenre",
+        "pk": 11,
+        "fields": {
+            "name": "Короткометражка"
+        }
+    },
+    {
+        "model": "movie.MovieGenre",
+        "pk": 12,
+        "fields": {
+            "name": "Криминал"
+        }
+    },
+    {
+        "model": "movie.MovieGenre",
+        "pk": 13,
+        "fields": {
+            "name": "Мелодрама"
+        }
+    },
+    {
+        "model": "movie.MovieGenre",
+        "pk": 14,
+        "fields": {
+            "name": "Мультфильм"
+        }
+    },
+    {
+        "model": "movie.MovieGenre",
+        "pk": 15,
+        "fields": {
+            "name": "Мюзикл"
+        }
+    },
+    {
+        "model": "movie.MovieGenre",
+        "pk": 16,
+        "fields": {
+            "name": "Приключения"
+        }
+    },
+    {
+        "model": "movie.MovieGenre",
+        "pk": 17,
+        "fields": {
+            "name": "Спорт"
+        }
+    },
+    {
+        "model": "movie.MovieGenre",
+        "pk": 18,
+        "fields": {
+            "name": "Триллер"
+        }
+    },
+    {
+        "model": "movie.MovieGenre",
+        "pk": 19,
+        "fields": {
+            "name": "Ужасы"
+        }
+    },
+    {
+        "model": "movie.MovieGenre",
+        "pk": 20,
+        "fields": {
+            "name": "Фантастика"
+        }
+    },
+    {
+        "model": "movie.MovieGenre",
+        "pk": 21,
+        "fields": {
+            "name": "Фэнтези"
+        }
+    }
+]
