@@ -2,9 +2,12 @@ from datetime import date
 
 from django.db import models
 
+from .utils import movie_dir_path
+
 
 class Movie(models.Model):
     name = models.CharField(max_length=150, verbose_name='Название')
+    poster = models.ImageField(upload_to=movie_dir_path, null=True, blank=True)
     synopsis = models.TextField(max_length=1000, verbose_name='Синопсис')
     budget_in_dollars = models.PositiveIntegerField(verbose_name='Бюджет (в долларах)')
     box_office_in_dollars = models.PositiveIntegerField(verbose_name='Сборы (в долларах)',
@@ -12,7 +15,7 @@ class Movie(models.Model):
     world_premier = models.DateField(verbose_name='Мировая премьера')
     duration_in_minutes = models.PositiveIntegerField(verbose_name='Длительность (в минутах)')
     certificate = models.CharField(max_length=3, verbose_name='Возрастное ограничение')
-    countries = models.CharField(max_length=150, verbose_name='Страны')
+    countries = models.CharField(max_length=150, verbose_name='Страна')
     tagline = models.CharField(max_length=70, verbose_name='Слоган',
         blank=True)
     genres = models.ManyToManyField('MovieGenre', related_name='films_with_genre', verbose_name='Жанр')
@@ -21,6 +24,9 @@ class Movie(models.Model):
     scenarists = models.ManyToManyField('Person', related_name="films_as_scenarist", verbose_name='Сценарист')
     operators = models.ManyToManyField('Person', related_name="films_as_operator", verbose_name='Оператор')
     composers = models.ManyToManyField('Person', related_name="films_as_composer", verbose_name='Композитор')
+
+    def __str__(self):
+        return "{}, {}".format(self.name, self.world_premier)
 
 
 class Serial(Movie, models.Model):
@@ -51,3 +57,14 @@ class Person(models.Model):
     
     def __str__(self):
         return "{} {}".format(self.first_name, self.last_name)
+
+
+class Review(models.Model):
+    author = models.ForeignKey('auth.User', verbose_name='Автор ревью', related_name='reviews', on_delete=models.CASCADE)
+    movie = models.ForeignKey('Movie', verbose_name='Фильм или сериал', related_name='reviews', on_delete=models.CASCADE)
+    text = models.CharField(max_length=5000, verbose_name='Текст')
+    date_of_creation = models.DateTimeField(auto_created=True, verbose_name='Дата создания')
+    date_of_modifying = models.DateTimeField(auto_created=True, auto_now_add=True, verbose_name='Дата модификации')
+
+    def has_been_modified(self):
+        return self.date_of_creation != self.date_of_modifying

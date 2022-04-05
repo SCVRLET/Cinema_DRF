@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Movie, Person, MovieGenre, Serial
+from .models import Movie, Person, MovieGenre, Serial, Review
 
 
 @admin.register(Movie)
@@ -22,3 +22,7 @@ class GenreAdmin(admin.ModelAdmin):
 class SerialAdmin(admin.ModelAdmin):
     list_display = ('name', 'world_premier', 'budget_in_dollars')
 
+
+@admin.register(Review)
+class ReviewAdmin(admin.ModelAdmin):
+    list_display = ('author', 'movie', 'date_of_creation')
