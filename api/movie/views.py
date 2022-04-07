@@ -1,6 +1,6 @@
 from django.shortcuts import get_object_or_404
 
-from rest_framework import viewsets, authentication
+from rest_framework import viewsets
 
 from rest_framework.decorators import action
 
@@ -20,7 +20,6 @@ from .mixins import CinemaMixin
 class MovieViewSet(CinemaMixin, BaseGenericViewSet):
     queryset = Movie.objects.all()
     serializer_class = serializers.MovieSerializer
-    authentication_classes = [authentication.TokenAuthentication]
 
     def retrieve(self, request, pk):
         '''Детальная информация о фильме/сериале'''
