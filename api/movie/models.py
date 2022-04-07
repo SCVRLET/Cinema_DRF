@@ -25,6 +25,16 @@ class Movie(models.Model):
     operators = models.ManyToManyField('Person', related_name="films_as_operator", verbose_name='Оператор')
     composers = models.ManyToManyField('Person', related_name="films_as_composer", verbose_name='Композитор')
 
+    @property
+    def genres_names(self):
+        ret = set()
+
+        for g in self.genres.all():
+            ret.add(g.name)
+        
+        return ret
+
+
     def __str__(self):
         return "{}, {}".format(self.name, self.world_premier)
 
@@ -63,8 +73,12 @@ class Review(models.Model):
     author = models.ForeignKey('auth.User', verbose_name='Автор ревью', related_name='reviews', on_delete=models.CASCADE)
     movie = models.ForeignKey('Movie', verbose_name='Фильм или сериал', related_name='reviews', on_delete=models.CASCADE)
     text = models.CharField(max_length=5000, verbose_name='Текст')
-    date_of_creation = models.DateTimeField(auto_created=True, verbose_name='Дата создания')
+    date_of_creation = models.DateTimeField(auto_created=True, default=date.today().strftime("%Y-%m-%d"), verbose_name='Дата создания', blank=True)
     date_of_modifying = models.DateTimeField(auto_created=True, auto_now_add=True, verbose_name='Дата модификации')
 
     def has_been_modified(self):
         return self.date_of_creation != self.date_of_modifying
+
+
+    def __str__(self):
+        return '{} {} {}'.format(self.author, self.movie.name, self.date_of_creation)

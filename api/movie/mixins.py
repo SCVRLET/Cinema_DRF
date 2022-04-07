@@ -1,15 +1,61 @@
-from django.db.models import CharField, IntegerField, DateField
+from django.shortcuts import get_object_or_404
+from rest_framework.response import Response
 
-from datetime import date
+
+class SearchByGenreMixin:
+    def search_by_genre(self, request, pk):
+        instance = self.queryset.filter(genres__in={pk})
+
+        serialized_movies = self.get_serializer(instance, many=True)
+
+        return Response(serialized_movies.data, status=200)
 
 
-class HumanMixin():
-    first_name = CharField(verbose_name='Имя', max_length=30)
-    last_name = CharField(verbose_name='Фамилия', max_length=150)
-    patronymic = CharField(verbose_name='Отчество', max_length=150, blank=True)
-    date_of_birth = DateField()
-    place_of_birth = CharField(max_length=100)
-    
+class CreateReviewMixin:
+    def create_review(self, request, *args, **kwargs):
+        cinema = self.get_object()
+        instance_data = {
+            'text': request.data['text'],
+            'movie': cinema.id,
+            'author': request.user.id
+        }
 
-    def get_age(self):
-        return date.today() - self.date_of_birth
+        serializer = self.get_serializer(data=instance_data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+
+        return Response(status=200)
+
+
+class ReadAllReviewsMixin:
+    def get_all_reviews(self, request):
+        cinema = self.get_object()
+        reviews = cinema.reviews.all().select_related('author').order_by('date_of_creation')
+
+        serializer = self.get_serializer(reviews, many=True)
+
+        return Response(serializer.data)
+
+
+class UpdateReviewMixin:
+    def update_review(self, request, id):
+        review = get_object_or_404(self.queryset, id=id, author=request.user)
+
+        review.text = request.data.get('text')
+        review.save(update_fields=['text'])
+
+        return Response(status=200)
+
+
+class DeleteReviewMixin:
+    def delete_review(self, request, id):
+        review = get_object_or_404(self.queryset, id=id, author=request.user)
+        review.delete()
+
+        return Response(status=200)
+
+
+class CinemaMixin(SearchByGenreMixin, CreateReviewMixin,
+                ReadAllReviewsMixin, UpdateReviewMixin, DeleteReviewMixin):
+    '''Класс, который просто объединяет все примеси'''
+    pass
