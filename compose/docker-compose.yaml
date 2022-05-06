@@ -1,0 +1,36 @@
+version: '3'
+volumes:
+  cinema_db:
+networks:
+  cinema_net:
+
+
+services:
+  cinema-db:
+    container_name: cinema-db
+    image: postgres:10
+    volumes:
+      - cinema_db:/var/cinema/postgresql/data
+    networks:
+      - cinema_net
+    environment:
+      POSTGRES_USER: "postgress"
+      POSTGRES_HOST_AUTH_METHOD: trust
+  
+  cinema-api:
+    container_name: cinema-api
+    ports:
+      - "8090:8090"
+    build: ../api
+    command: python manage.py migrate
+    command: poetry run python manage.py runserver 0.0.0.0:8090
+    env_file:
+      - ../env/.env
+    environment: 
+      - PORT=8090
+    volumes:
+      - ../api:/app
+    depends_on:
+      - cinema-db
+    networks:
+      - cinema_net
